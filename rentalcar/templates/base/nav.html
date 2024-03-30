@@ -1,0 +1,63 @@
+ <!-- {% load static %}
+{% block navcontent %}
+
+
+<nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+    <div class="container">
+
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand" href="index.html">Wheels4U<span></span></a>
+
+        </div>
+
+        
+        <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                <li class=" scroll active"><a href="#home">HOME</a></li>
+                <li class="scroll"><a href="#newcars">CARS</a></li>
+                <li class="scroll"><a href="#brand">BRANDS</a></li>
+                <li class="scroll"><a href="#contact">Contact Us</a></li>
+                <li class="scroll"><a href="/signup/">Log in</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock navcontent%} -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"></a>
+        <h1 style="font-size: xx-large;color: rgb(5, 5, 5);font-style: italic;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">WHEELS4U</h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;" class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#home">HOME</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#newcars">CARS</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#brand">BRANDS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">CONTACTUS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav> 
+
+
+

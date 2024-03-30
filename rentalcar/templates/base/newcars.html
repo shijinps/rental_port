@@ -1,0 +1,95 @@
+{% load static %}
+{% block newcontent %}
+
+
+
+<section id="new-cars" class="new-cars">
+    <div class="container">
+        <div class="section-header">
+            <p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">checkout <span>our</span> cars</p>
+            <h2 style="font-family: 'Times New Roman', Times, serif;">please login for booking</h2>
+        </div><!--/.section-header-->
+        <div class="new-cars-content">
+            <div class="owl-carousel owl-theme" id="new-cars-carousel">
+                <div class="new-cars-item">
+                    <div class="single-new-cars-item">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-12">
+                                <div class="new-cars-img">
+                                    <img src="{% static 'assets/images/new-cars-model/jeep.jpeg' %}" alt="img"/>
+                                </div><!--/.new-cars-img-->
+                            </div>
+                            <div class="col-md-5 col-sm-12">
+                                <div class="new-cars-txt">
+                                    <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Jeep Wrangler</h2>
+                                    <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                                        The Jeep Wrangler is a series of compact and mid-size four-wheel drive off-road SUVs manufactured by Jeep since 1986, and currently in its fourth generation. The Wrangler JL, the most recent generation, was unveiled in late 2017 and is produced at Jeep's Toledo Complex. The Wrangler is a direct progression from the World War II Jeep, through the CJ (Civilian Jeeps) produced by Willys, Kaiser-Jeep
+                                    </p>
+                                    <p class="new-cars-para2" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
+                                        Four-wheel-drive off-road SUV produced by Jeep. 
+                                    </p>
+                                    <button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
+                                        <a style="color: white;" href="{% url 'carview' %}">view More</a>
+                                    </button>
+                                </div><!--/.new-cars-txt-->	
+                            </div><!--/.col-->
+                        </div><!--/.row-->
+                    </div><!--/.single-new-cars-item-->
+                </div><!--/.new-cars-item-->
+                <div class="new-cars-item">
+                    <div class="single-new-cars-item">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-12">
+                                <div class="new-cars-img">
+                                    <img src="{% static 'assets/images/new-cars-model/may.jpeg' %}" alt="img"/>
+                                </div><!--/.new-cars-img-->
+                            </div>
+                            <div class="col-md-5 col-sm-12">
+                                <div class="new-cars-txt">
+                                    <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Mercedes Maybach
+                                        S-Class</h2>
+                                    <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                                        Serenity and uniqueness characterise the design. Underlined by the mighty chrome radiator grille with "Maybach" lettering and the bonnet trim on the powerful front section. Around the vehicle, many other chrome features set brilliant highlights, perfectly complemented by the legendary two-tone paint finish if desired.
+                                    </p>
+                                    <p class="new-cars-para2" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                                        The Mercedes Maybach Haute Voiture special edition combines the aesthetics and craftsmanship typical of the brand with unusual colour and material combinations inspired by fashion
+                                    </p>
+                                    <button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
+                                        <a style="color: white;" href="{% url 'carview' %}">view More</a>
+                                    </button>
+                                </div><!--/.new-cars-txt-->	
+                            </div><!--/.col-->
+                        </div><!--/.row-->	
+                    </div><!--/.single-new-cars-item-->
+                </div><!--/.new-cars-item-->
+                <div class="new-cars-item">
+                    <div class="single-new-cars-item">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-12">
+                                <div class="new-cars-img">
+                                    <img src="{% static 'assets/images/new-cars-model/rol.jpeg' %}" alt="img"/>
+                                </div><!--/.new-cars-img-->
+                            </div>
+                            <div class="col-md-5 col-sm-12">
+                                <div class="new-cars-txt">
+                                    <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Rolls-Royce Phantom</h1>
+                                    <p style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                                        The Rolls-Royce Phantom is a full-sized luxury saloon manufactured by Rolls-Royce Motor Cars. It is the eighth and current generation of the Rolls-Royce Phantom, debuting in 2017, and the second launched by Rolls-Royce under BMW ownership. It is offered in two wheelbase lengths. This is the current flagship model made by Rolls-Royce Motor Cars.
+                                    </p>
+                                    <p class="new-cars-para2" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+                                        Inimitable in style, the embodiment of confidence, Phantom Series  boldly defines new standards of excellence.
+                                    </p>
+                                    <button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
+                                      <a style="color: white;" href="{% url 'carview' %}">view More</a>
+                                    </button>
+                                </div><!--/.new-cars-txt-->	
+                            </div><!--/.col-->
+                        </div><!--/.row-->
+                    </div><!--/.single-new-cars-item-->
+                </div><!--/.new-cars-item-->
+            </div><!--/#new-cars-carousel-->
+        </div><!--/.new-cars-content-->
+    </div><!--/.container-->
+
+</section>
+{% endblock newcontent%}

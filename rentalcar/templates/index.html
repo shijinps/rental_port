@@ -1,0 +1,109 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    {% block maincontent %}
+    {% include 'base/main.html' %}
+    {% endblock maincontent %}
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!--welcome-hero start -->
+    <section id="home" class="welcome-hero">
+
+        <!-- top-area Start -->
+        <div class="top-area">
+            <div class="header-area">
+                <!-- Start Navigation -->
+                {% block navcontent %}
+                {% include 'base/nav.html' %}
+                {% endblock navcontent %}
+                <!-- End Navigation -->
+            </div><!--/.header-area-->
+            <div class="clearfix"></div>
+
+        </div><!-- /.top-area-->
+        <!-- top-area End -->
+
+        {% block topcontent %}
+        {% include 'base/top.html' %}
+        {% endblock topcontent %}
+
+    </section><!--/.welcome-hero-->
+    <!--welcome-hero end -->
+
+    <!--service start -->
+    {% block sercontent %}
+    {% include 'base/service.html' %}
+    {% endblock sercontent %}
+    <!--service end-->
+
+    <!--new-cars start -->
+    {% block newcontent %}
+    {% include 'base/newcars.html' %}
+    {% endblock newcontent %}
+    <!--/.new-cars-->
+    <!--new-cars end -->
+
+    <!--featured-cars start -->
+    <!-- {% block carscontent %}
+    {% include 'carview.html' %}
+    {% endblock carscontent %} -->
+    <!--/.featured-cars-->
+    <!--featured-cars end -->
+
+    <!-- clients-say strat -->
+    {% block clcontent %}
+    {% include 'base/client.html' %}
+    {% endblock clcontent %}
+    <!--/.clients-say-->
+    <!-- clients-say end -->
+
+    <!--brand strat -->
+    {% block brandcontent %}
+    {% include 'base/brand.html' %}
+    {% endblock brandcontent %}
+    <!--/brand-->
+    <!--brand end -->
+
+    <!--blog start -->
+    <section id="blog" class="blog"></section><!--/.blog-->
+    <!--blog end -->
+
+    <!--contact start-->
+    {% block contacontent %}
+    {% include 'base/contact.html' %}
+    {% endblock contacontent %}
+    <!--contact end-->
+
+
+    <!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+    <script src="{% static 'assets/js/jquery.js' %}"></script>
+
+    <!--modernizr.min.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <!--bootstrap.min.js-->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- bootsnav js -->
+    <script src="{% static 'assets/js/bootsnav.js' %}"></script>
+
+    <!--owl.carousel.js-->
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!--Custom JS-->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>
+
+</html>

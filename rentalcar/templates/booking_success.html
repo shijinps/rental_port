@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Success</title>
+</head>
+<body>
+    <h1>Booking Successful!</h1>
+    <p>Your booking details:</p>
+    {% for booking in booking %}
+    <ul>
+        <li>Name: {{ booking.Name }}</li>
+        <li>Model: {{ booking.model }}</li>
+        <li>Rental Start Date: {{ booking.Rental_start_date }}</li>
+        <li>Rental End Date: {{ booking.Rental_end_date }}</li>
+        <li>Booking Status:{{booking.Rental_status}}</li>
+        
+   </ul>
+   {% endfor %}
+    <p><a href="{% url 'home' %}">Go back to home</a></p>
+</body>
+</html>
+
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Success</title>
+</head>
+<body>
+    <h1>Booking Successful!</h1>
+    {% if booking %}
+    <p>Your booking details:</p>
+    <ul>
+        <li>Name: {{ booking.Name }}</li>
+        <li>Model: {{ booking.model }}</li>
+        <li>Rental Start Date: {{ booking.Rental_start_date }}</li>
+        <li>Rental End Date: {{ booking.Rental_end_date }}</li>
+        <!-- Add other booking details as needed -->
+    </ul>
+    {% endif %}
+    <p><a href="{% url 'home' %}">Go back to home</a></p>
+</body>
+</html>

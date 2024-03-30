@@ -1,0 +1,94 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKING DETAILS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 2px solid #007bff;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body><center>
+        <h1>VIEW BOOKING STATUS</h1>
+        <table border="2">
+            
+            <tr>
+                <th>Name</th>
+                <th>model</th>
+                <th>Rental_start_date</th>
+                <th>Rental_end_date</th>
+                <th>pickuplocation</th>
+                <th>Dropoflocation</th>
+                <th>Rental_status</th>
+    
+            </tr>
+          {% for i in data %}
+            <tr>
+                <td>{{i.Name}}</td>
+                <td>{{i.model}}</td>
+                <td>{{i.Rental_start_date}}</td>
+                <td>{{i.Rental_end_date}}</td>
+                <td>{{i.pickuplocation}}</td>
+                <td>{{i.Dropoflocation}}</td>
+                <td>{{i.Rental_status}}</td>
+                
+            </tr>
+         {% endfor %}
+         <a class="btn" href="{% url 'home' %}">Go Home</a>
+        </table>
+    </center>
+</body>
+</html> 
