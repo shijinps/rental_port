@@ -1,25 +1,35 @@
-# Use the official Python image as the base image
+# Use the official Python base image from Docker Hub
 FROM python:3.9-slim
 
-# Set environment variables to avoid writing .pyc files and to run Django in production mode
-ENV PYTHONDONTWRITEBYTECODE 1
+# Set environment variables
 ENV PYTHONUNBUFFERED 1
+ENV PATH="/usr/local/bin:$PATH"
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements.txt (make sure to create it before building the Docker image)
+# Copy the requirements file into the container
 COPY requirements.txt /app/
 
-# Install the Python dependencies
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+# Install system dependencies for PostgreSQL, or add your DB client if needed
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    build-essential libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy the entire project into the container
+# Install Python dependencies
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+# Copy the rest of the project files into the container
 COPY . /app/
 
-# Expose port 8000 for the Django development server
+# Set environment variables for Django settings (adjust if needed)
+ENV DJANGO_SETTINGS_MODULE=myproject.settings
+
+# Expose the port that Django will run on
 EXPOSE 8000
 
-# Run Django migrations and start the server
-CMD ["bash", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+# Run the Django app with Gunicorn (adjust the command for your app)
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
+
