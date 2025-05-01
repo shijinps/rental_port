@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['t8g8wos0cgwkcccwokowkgko.93.127.132.181.sslip.io', 'rentalcar.shijin.in']
 
+# Trusted origins for CSRF
+CSRF_TRUSTED_ORIGINS = [
+    'https://rentalcar.shijin.in',
+]
 
 # Application definition
 
@@ -39,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'adminapp',
-    
 ]
 
 MIDDLEWARE = [
@@ -57,7 +60,7 @@ ROOT_URLCONF = 'rentalcar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +89,6 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', '3306'),
     }
 }
-
 
 
 # Password validation
@@ -124,16 +126,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 ]
-MEDIA_URL='/media/'
-MEDIAROOT=[
-    os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+MEDIAROOT = [
+    os.path.join(BASE_DIR, 'media')
 ]
 
 LOGOUT_REDIRECT_URL = 'login'
-LOGIN_REDIRECT_URL='home'
+LOGIN_REDIRECT_URL = 'home'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
