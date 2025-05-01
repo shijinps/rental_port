@@ -7,3 +7,4 @@ tzdata==2025.2
 gunicorn==20.1.0  # Add Gunicorn for production web server
 psycopg2-binary==2.9.6  # If you're using PostgreSQL as the database
 python-dotenv==0.21.1  # For environment variable management
+pymysql==1.1.0  # Add this line
