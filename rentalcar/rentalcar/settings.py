@@ -79,11 +79,14 @@ WSGI_APPLICATION = 'rentalcar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rentaldatas',
-        'USER':'root',
-        'PASSWORD':'navi@123'
+        'NAME': os.getenv('DB_NAME', 'rentaldatas'),
+        'USER': os.getenv('DB_USER', 'root'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'navi@123'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),  # replace 'localhost' if needed
+        'PORT': os.getenv('DB_PORT', '3306'),
     }
 }
+
 
 
 # Password validation
