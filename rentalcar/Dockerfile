@@ -2,25 +2,32 @@
 FROM python:3.11-slim
 
 # Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
 
-# Install dependencies
-RUN apt-get update && apt-get install -y build-essential libpq-dev curl libmariadb-dev
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    libmariadb-dev \
+    curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy requirements and install dependencies
-COPY requirements.txt /app/
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+# Install pip requirements
+COPY requirements.txt .
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt
 
-# Copy the entire project into the container
-COPY . /app/
+# Copy project files
+COPY . .
 
-# Expose port 8000 for the Django development server
+# Set the default port
 EXPOSE 8000
 
-# Run Django migrations and start the server
-CMD ["bash", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+# Run migrations and start Django development server
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
