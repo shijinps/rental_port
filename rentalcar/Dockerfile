@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
 
-# Install system dependencies including pkg-config
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
@@ -27,8 +27,11 @@ RUN pip install --upgrade pip \
 # Copy project files
 COPY . .
 
-# Set the default port
+# Collect static files
+RUN python manage.py collectstatic --noinput
+
+# Expose port
 EXPOSE 8000
 
-# Default command to run Django development server
+# Run Django dev server (you should change this to gunicorn for production)
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
