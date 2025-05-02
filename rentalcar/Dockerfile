@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     libmariadb-dev \
     curl \
-    pkg-config \  # Added pkg-config for handling library dependencies
+    pkg-config \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
