@@ -8,29 +8,11 @@ ENV PYTHONUNBUFFERED=1
 # Install dependencies
 RUN apt-get update && apt-get install -y build-essential libpq-dev curl
 
-# Set working directory
-WORKDIR /app
-
-# Copy requirements and install
-COPY requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-# Copy the rest of the code
-COPY . .
-
-
-# Set environment variables to avoid writing .pyc files and to run Django in production mode
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements.txt (make sure to create it before building the Docker image)
+# Copy requirements and install dependencies
 COPY requirements.txt /app/
-
-# Install the Python dependencies
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
