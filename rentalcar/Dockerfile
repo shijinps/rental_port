@@ -6,12 +6,13 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
 
-# Install system dependencies
+# Install system dependencies including pkg-config
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
     libmariadb-dev \
     curl \
+    pkg-config \  # Added pkg-config for handling library dependencies
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -26,8 +27,15 @@ RUN pip install --upgrade pip \
 # Copy project files
 COPY . .
 
+# Copy the entrypoint script and give execution permission
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Set the default port
 EXPOSE 8000
 
-# Run migrations and start Django development server
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+# Use entrypoint for running pre-start commands
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Default command to run Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
