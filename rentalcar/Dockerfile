@@ -20,22 +20,22 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Install pip requirements
-COPY requirements.txt .
+COPY requirements.txt . 
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
 # Copy project files
 COPY . .
 
-# Copy the entrypoint script and give execution permission
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Ensure entrypoint.sh exists and is executable
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 # Set the default port
 EXPOSE 8000
 
 # Use entrypoint for running pre-start commands
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 # Default command to run Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
