@@ -10,10 +10,8 @@ urlpatterns = [
     path('bookingview/', views.bookingview, name='viewbooking'),
     path('carview/', views.carview, name='carview'),
     path('login/', views.loginview, name='login'),
-    path('logout/', views.logout_view, name='logout'),
+    path('logout/', views.logout_view, name='logout'),  # ✅ Added trailing slash and name
     path('sign_up/', views.sign_up, name='signup'),
     path('reset/', views.Resethome, name='reset'),
     path('passwordreset/', views.resetPassword, name='passwordreset'),
 ]
-
-
