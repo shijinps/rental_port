@@ -26,12 +26,8 @@ SECRET_KEY = 'django-insecure-cc2i1dtplmrrj3xl_5i8vo*v(q@22)7pda)vhpod$)zil5_4cj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['t8g8wos0cgwkcccwokowkgko.93.127.132.181.sslip.io', 'rentalcar.shijin.in']
+ALLOWED_HOSTS = []
 
-# Trusted origins for CSRF
-CSRF_TRUSTED_ORIGINS = [
-    'https://rentalcar.shijin.in',
-]
 
 # Application definition
 
@@ -82,11 +78,11 @@ WSGI_APPLICATION = 'rentalcar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'rentaldatas'),
-        'USER': os.getenv('DB_USER', 'root'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'navi@123'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),  # replace 'localhost' if needed
-        'PORT': os.getenv('DB_PORT', '3306'),
+        'NAME': 'rentaldatas',
+        'USER': 'root',
+        'PASSWORD': 'navi@123',
+        'HOST': 'localhost',  # Add this line for database host
+        'PORT': '3306',       # Default MySQL port, modify if necessary
     }
 }
 
@@ -126,13 +122,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Directories where Django will look for static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'rentalcar/static'),  # Pointing to the 'rentalcar/static' directory
 ]
+
+# The directory where static files will be collected when running collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is where static files are gathered
+
+# Media files (Uploaded files like images, videos)
 MEDIA_URL = '/media/'
-MEDIAROOT = [
-    os.path.join(BASE_DIR, 'media')
-]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
