@@ -1,4 +1,4 @@
-asgiref==3.8.2
+asgiref==3.8.1
 Django==5.3
 django-crispy-forms==2.6
 djangorestframework==3.17.0
