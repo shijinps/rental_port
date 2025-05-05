@@ -122,13 +122,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Directories where Django will look for static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'rentalcar/static'),  # Pointing to the 'rentalcar/static' directory
 ]
+
+# The directory where static files will be collected when running collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is where static files are gathered
+
+# Media files (Uploaded files like images, videos)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = [
-    os.path.join(BASE_DIR, 'media')
-]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
