@@ -63,9 +63,9 @@ WSGI_APPLICATION = 'rentalcar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rentaldatas',
-        'USER': 'root',
-        'PASSWORD': 'navi@123',
+        'NAME': 'default',
+        'USER': 'mysql',
+        'PASSWORD': 'xliIs5o4H9qNUukv9i52lFDLiSnbgQd0vOI3NiFOd22RBCLDeQQKeKyahcACULSm',
         'HOST': 'h4occ0g848wgog8ckwwg4kg4',  # Changed from 'localhost' to avoid socket issue
         'PORT': '3306',
     }
