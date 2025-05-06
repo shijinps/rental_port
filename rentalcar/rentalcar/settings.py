@@ -66,7 +66,7 @@ DATABASES = {
         'NAME': 'rentaldatas',
         'USER': 'root',
         'PASSWORD': 'navi@123',
-        'HOST': '127.0.0.1',  # Changed from 'localhost' to avoid socket issue
+        'HOST': 'h4occ0g848wgog8ckwwg4kg4',  # Changed from 'localhost' to avoid socket issue
         'PORT': '3306',
     }
 }
